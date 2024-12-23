@@ -1,0 +1,1 @@
+ALTER TABLE `resident_table` ADD `original_address` varchar(255);

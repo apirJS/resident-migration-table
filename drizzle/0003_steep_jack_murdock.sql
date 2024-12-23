@@ -1,0 +1,1 @@
+ALTER TABLE `resident_table` ADD `updated_at` timestamp DEFAULT (now()) NOT NULL;
