@@ -1,27 +1,11 @@
 import { eq } from 'drizzle-orm';
 import db from './db';
 import { residentsTable, residentMigrationsTable } from './schema';
+import { generateRandomDate, generateRandomNumbers, generateRandomString } from '@/lib';
 
 type Resident = typeof residentsTable.$inferInsert;
 type ResidentMigration = typeof residentMigrationsTable.$inferInsert;
 
-function generateRandomNumbers(length: number): string {
-  return Array.from({ length }, () => Math.floor(Math.random() * 10)).join('');
-}
-
-function generateRandomString(length: number): string {
-  return Array.from({ length }, () =>
-    String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-  ).join('');
-}
-
-// function selectRandomItem<T>(items: T[]): T {
-//   return items[Math.floor(Math.random() * items.length)];
-// }
-
-function generateRandomDate(): Date {
-  return new Date(Date.now() - Math.floor(Math.random() * 10000000000));
-}
 
 export async function seed() {
   const startTime = Date.now();
