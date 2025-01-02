@@ -5,7 +5,6 @@ import db from './db';
 import { residentMigrationsTable, residentsTable } from './schema';
 
 
-
 export async function getResidents(limit: number = 1000) {
   try {
     return await db.select().from(residentsTable).limit(limit);

@@ -1,4 +1,4 @@
-import { Resident } from './types';
+import { residentsTable } from "@/db/schema";
 
 export function isServiceMethodSuccess<T>(result: T | Error): result is T {
   return !(result instanceof Error);
@@ -17,6 +17,7 @@ export function generateRandomDate(): Date {
   return new Date(Date.now() - Math.floor(Math.random() * 10000000000));
 }
 
+type Resident = typeof residentsTable.$inferSelect;
 export function getDummyResidents(n: number) {
   try {
     const residents: Resident[] = [];
