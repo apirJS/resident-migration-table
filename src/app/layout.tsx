@@ -15,7 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Tabel Migrasi Data Penduduk',
+  title: `${
+    process.env.NODE_ENV === 'production' ? '' : '(Demo) '
+  }Tabel Migrasi Data Penduduk`,
   description: 'Tabel Migrasi Data Penduduk',
 };
 
@@ -35,8 +37,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            <Header />
-            {children}
+          <Header />
+          {children}
         </ThemeProvider>
       </body>
     </html>

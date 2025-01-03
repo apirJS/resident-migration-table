@@ -99,13 +99,12 @@ export default function DataTable<TData, TValue>({
             }
             return row;
           })
-          
         );
       },
       deleteData: (rowIndex) => {
         skipAutoResetPageIndex();
         setData((old) => old.filter((_, index) => index !== rowIndex));
-      }
+      },
     },
   });
 

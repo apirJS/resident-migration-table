@@ -4,7 +4,6 @@ import { eq } from 'drizzle-orm';
 import db from './db';
 import { residentMigrationsTable, residentsTable } from './schema';
 
-
 export async function getResidents(limit: number = 1000) {
   try {
     return await db.select().from(residentsTable).limit(limit);
@@ -20,8 +19,11 @@ export async function getResidents(limit: number = 1000) {
 type Resident = typeof residentsTable.$inferInsert;
 export async function createResident(data: Resident) {
   try {
-    const [result] = await db.insert(residentsTable).values(data).$returningId();
-    return result.id
+    const [result] = await db
+      .insert(residentsTable)
+      .values(data)
+      .$returningId();
+    return result.id;
   } catch (error) {
     return new Error(
       `Failed to create resident: ${
@@ -69,4 +71,3 @@ export async function createResidentMigration(data: ResidentMigration) {
     );
   }
 }
-

@@ -16,7 +16,7 @@ export default function ErrorModal({ error }: Props) {
         </div>
         <ScrollArea>
           <div className='overflow-auto dark:text-gray-600'>
-            <p className='break-all'>{error.message}</p>
+            <p className='break-all'>{error.message}{error.stack}</p>
           </div>
           <ScrollBar orientation='vertical' />
         </ScrollArea>
