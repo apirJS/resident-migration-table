@@ -13,7 +13,7 @@ export default function TableActionsTop<TData>({
   return (
     <div className=' flex items-center justify-between space-x-2 '>
       <AddDataDialog setData={setData}/>
-      <div className='flex items-center gap-x-2'>
+      <div className='flex items-center gap-x-2 flex-col sm:flex-row gap-y-1'>
         <ResetFilter table={table} />
         <ColumnViewOptions table={table} />
       </div>

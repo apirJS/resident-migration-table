@@ -59,7 +59,7 @@ export function ColumnViewOptions<TData>({
         <Button
           variant="outline"
           size="sm"
-          className="ml-auto hidden px-4 py-2 h-8 lg:flex"
+          className="ml-auto px-4 py-2 h-8 flex"
         >
           <Settings2 />
           Kolom
