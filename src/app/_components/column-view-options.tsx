@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { Table } from "@tanstack/react-table"
-import { Settings2 } from "lucide-react"
+import { Table } from '@tanstack/react-table';
+import { Settings2 } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
+import { Button } from '../../components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu"
+  DropdownMenuTrigger,
+} from '../../components/ui/dropdown-menu';
 
 interface ColumnViewOptionsProps<TData> {
-  table: Table<TData>
+  table: Table<TData>;
 }
 
 function transformColumnName(columnName: string) {
@@ -57,36 +57,38 @@ export function ColumnViewOptions<TData>({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="outline"
-          size="sm"
-          className="ml-auto px-4 py-2 h-8 flex"
+          variant='outline'
+          size='sm'
+          className='ml-auto px-4 py-2 h-8 flex'
         >
           <Settings2 />
           Kolom
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[150px]">
+      <DropdownMenuContent align='end' className='w-[150px]'>
         <DropdownMenuLabel>Toggle Kolom</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {table
           .getAllColumns()
           .filter(
             (column) =>
-              typeof column.accessorFn !== "undefined" && column.getCanHide() && column.id !== "actions"
+              typeof column.accessorFn !== 'undefined' &&
+              column.getCanHide() &&
+              column.id !== 'actions'
           )
           .map((column) => {
             return (
               <DropdownMenuCheckboxItem
                 key={column.id}
-                className="capitalize"
+                className='capitalize'
                 checked={column.getIsVisible()}
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
                 {transformColumnName(column.id)}
               </DropdownMenuCheckboxItem>
-            )
+            );
           })}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

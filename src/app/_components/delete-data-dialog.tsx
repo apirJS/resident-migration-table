@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,12 +9,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+} from '../../components/ui/alert-dialog';
 import { Trash2 } from 'lucide-react';
 import { CellContext } from '@tanstack/react-table';
 import React from 'react';
-import { deleteResident } from '@/db/service';
-import { isServiceMethodSuccess } from '@/lib';
+import { deleteResident } from '../../db/service';
+import { isServiceMethodSuccess } from '../../lib';
 
 type Props = CellContext<
   {

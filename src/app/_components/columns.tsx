@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { residentsTable } from '@/db/schema';
+import { Button } from '../../components/ui/button';
+import { residentsTable } from '../../db/schema';
 import { Column, ColumnDef, Row, RowData } from '@tanstack/react-table';
 import React from 'react';
 import {
@@ -11,8 +11,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
+} from '../../components/ui/select';
+import { Input } from '../../components/ui/input';
 import ActionsColumn from './actions-column';
 import { ArrowUpDown } from 'lucide-react';
 

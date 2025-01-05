@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '../../components/ui/dropdown-menu';
 import { CellContext } from '@tanstack/react-table';
 import { MoreHorizontal } from 'lucide-react';
 import EditDataDialog from './edit-data-dialog';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import { Plus } from 'lucide-react';
 import {
   Dialog,
@@ -9,10 +9,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { DialogClose } from '@radix-ui/react-dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+  DialogClose
+} from '../../components/ui/dialog';
+import { Input } from '../../components/ui/input';
+import { Label } from '../../components/ui/label';
 import {
   Select,
   SelectContent,
@@ -20,12 +20,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '../../components/ui/select';
 import React, { useEffect } from 'react';
-import { createResident, createResidentMigration } from '@/db/service';
-import { Resident, ResidentMigration } from '@/lib/types';
-import { isServiceMethodSuccess } from '@/lib';
-import { Textarea } from '@/components/ui/textarea';
+import { createResident, createResidentMigration } from '../../db/service';
+import { Resident, ResidentMigration } from '../../lib/types';
+import { isServiceMethodSuccess } from '../../lib';
+import { Textarea } from '../../components/ui/textarea';
 
 export default function AddDataDialog<TData>({
   setData,

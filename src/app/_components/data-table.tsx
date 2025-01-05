@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '../../components/ui/table';
 
 import {
   ColumnDef,
@@ -27,7 +27,7 @@ import TableActionsBottom from './table-actions-bottom';
 import TableActionsTop from './table-actions-top';
 
 import type { RowData } from '@tanstack/react-table';
-import { Resident } from '@/lib/types';
+import { Resident } from '../../lib/types';
 
 declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

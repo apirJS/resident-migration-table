@@ -3,7 +3,7 @@
 import { eq } from 'drizzle-orm';
 import db from './db';
 import { residentsTable, residentMigrationsTable } from './schema';
-import { generateRandomDate, generateRandomNumbers, generateRandomString } from '@/lib';
+import { generateRandomDate, generateRandomNumbers, generateRandomString } from '../lib';
 
 type Resident = typeof residentsTable.$inferInsert;
 type ResidentMigration = typeof residentMigrationsTable.$inferInsert;

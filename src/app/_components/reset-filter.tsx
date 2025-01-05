@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import { Table } from '@tanstack/react-table';
 
 export default function ResetFilter<TData>({ table }: { table: Table<TData> }) {

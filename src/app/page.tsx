@@ -3,8 +3,8 @@
 // import { getResidents } from '@/db/service';
 import { columns } from './_components/columns';
 import DataTable from './_components/data-table';
-import ErrorModal from '@/components/ui/error-modal';
-import { getDummyResidents, isServiceMethodSuccess } from '@/lib';
+import ErrorModal from '../components/ui/error-modal';
+import { getDummyResidents, isServiceMethodSuccess } from '../lib';
 
 export default async function Penduduk() {
   // const result = await getResidents(5000);

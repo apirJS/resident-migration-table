@@ -1,8 +1,8 @@
 'use client';
 
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Input } from '../../components/ui/input';
+import { Label } from '../../components/ui/label';
+import { Button } from '../../components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -12,7 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from '../../components/ui/dialog';
 import {
   Select,
   SelectContent,
@@ -20,16 +20,16 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '../../components/ui/select';
 
 import { CellContext } from '@tanstack/react-table';
 import { PenLine } from 'lucide-react';
 import React, { useEffect } from 'react';
-import { Textarea } from '@/components/ui/textarea';
-import { Resident, ResidentMigration } from '@/lib/types';
-import { createResidentMigration, updateResident } from '@/db/service';
-import { isServiceMethodSuccess } from '@/lib';
-import { Checkbox } from '@/components/ui/checkbox';
+import { Textarea } from '../../components/ui/textarea';
+import { Resident, ResidentMigration } from '../../lib/types';
+import { createResidentMigration, updateResident } from '../../db/service';
+import { isServiceMethodSuccess } from '../../lib';
+import { Checkbox } from '../../components/ui/checkbox';
 
 type Props = CellContext<
   {
