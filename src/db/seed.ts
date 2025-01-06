@@ -1,13 +1,15 @@
-"use server"
-
+'use server';
+import { fakerID_ID as faker } from '@faker-js/faker';
 import { eq } from 'drizzle-orm';
 import db from './db';
 import { residentsTable, residentMigrationsTable } from './schema';
-import { generateRandomDate, generateRandomNumbers, generateRandomString } from '../lib';
+import {
+  generateRandomDate,
+  generateRandomNumbers,
+} from '../lib';
 
 type Resident = typeof residentsTable.$inferInsert;
 type ResidentMigration = typeof residentMigrationsTable.$inferInsert;
-
 
 export async function seed() {
   const startTime = Date.now();
@@ -18,22 +20,22 @@ export async function seed() {
     for (let i = 0; i < 5000; i++) {
       const resident: Resident = {
         nik: generateRandomNumbers(16),
-        name: generateRandomString(20),
+        name: faker.person.fullName(),
         gender: Math.random() > 0.5 ? 'Male' : 'Female',
-        address: generateRandomString(30),
-        phone_number: generateRandomNumbers(20),
+        address: faker.location.streetAddress({ useFullAddress: true }),
+        phone_number: faker.phone.number(),
         status: Math.random() > 0.5 ? 'Active' : 'Migrated',
         created_at: generateRandomDate(),
         is_local_resident: Math.random() > 0.5,
+        original_address: '',
+        updated_at: new Date(),
       };
 
       if (!resident.is_local_resident) {
-        resident.original_address = generateRandomString(30);
+        resident.original_address = faker.location.streetAddress({ useFullAddress: true });
       } else {
         resident.original_address = resident.address;
       }
-
-      resident.updated_at = resident.created_at;
 
       const [result] = await trx
         .insert(residentsTable)
@@ -69,8 +71,8 @@ export async function seed() {
         resident_id: resident.id!,
         migration_status: 'Out',
         migration_date: generateRandomDate(),
-        new_address: generateRandomString(30),
-        description: generateRandomString(50),
+        new_address: faker.location.streetAddress({ useFullAddress: true }),
+        description: faker.lorem.sentence(),
         created_at: generateRandomDate(),
       };
 
@@ -113,8 +115,8 @@ export async function seed() {
         resident_id: resident.id!,
         migration_status: 'In',
         migration_date: generateRandomDate(),
-        new_address: generateRandomString(30),
-        description: generateRandomString(50),
+        new_address: faker.location.streetAddress({ useFullAddress: true }),
+        description: faker.lorem.sentence(),
         created_at: generateRandomDate(),
       };
 
@@ -144,3 +146,5 @@ export async function seed() {
 }
 
 seed().catch(console.error);
+
+

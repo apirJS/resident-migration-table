@@ -1,4 +1,5 @@
-import { residentsTable } from "@/db/schema";
+import { fakerID_ID as faker } from '@faker-js/faker';
+import { residentsTable } from '@/db/schema';
 
 export function isServiceMethodSuccess<T>(result: T | Error): result is T {
   return !(result instanceof Error);
@@ -25,10 +26,10 @@ export function getDummyResidents(n: number) {
       const resident: Resident = {
         id: i + 1,
         nik: generateRandomNumbers(16),
-        name: generateRandomString(20),
+        name: faker.person.fullName(),
         gender: Math.random() > 0.5 ? 'Male' : 'Female',
-        address: generateRandomString(30),
-        phone_number: generateRandomNumbers(20),
+        address: faker.location.streetAddress({ useFullAddress: true }),
+        phone_number: faker.phone.number(),
         status: Math.random() > 0.5 ? 'Active' : 'Migrated',
         created_at: generateRandomDate(),
         is_local_resident: Math.random() > 0.5,
@@ -37,7 +38,9 @@ export function getDummyResidents(n: number) {
       };
 
       if (!resident.is_local_resident) {
-        resident.original_address = generateRandomString(30);
+        resident.original_address = faker.location.streetAddress({
+          useFullAddress: true,
+        });
       } else {
         resident.original_address = resident.address;
       }
