@@ -6,7 +6,8 @@ export default function ResetFilter<TData>({ table }: { table: Table<TData> }) {
     table.setSorting([]);
     table.setColumnFilters([]);
     table.resetColumnFilters();
-    table.resetPagination()
+    table.resetPagination();
+    table.resetColumnVisibility();
   }
 
   return (
